@@ -18,7 +18,7 @@ const Alert = () => {
     <AnimatePresence>
     
       {alert && 
-      <motion.div role="alert" className={`alert alert-${alert.status} absolute inset-x-2 m-auto w-[90%] z-10`} initial={{scale: 0}} animate={{scale: 1}} exit={{scale: 0}}>
+      <motion.div role="alert" className={`alert alert-${alert.status} absolute inset-x-2 m-auto w-[90%] z-10 border border-primary`} initial={{scale: 0}} animate={{scale: 1}} exit={{scale: 0}}>
         {alert.status === 'error' ? (
           <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
             <g fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth={2}>

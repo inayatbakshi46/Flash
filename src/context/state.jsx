@@ -11,7 +11,7 @@ const State = (props) => {
   const [user, setUser] = useState(null);
 const { showAlert } = useAlert();
   
-  
+  const url = import.meta.env.VITE_BASE_URL;
   
   const toggleDark = () => {
     setDark(!isDark)
@@ -33,7 +33,7 @@ const { showAlert } = useAlert();
   
   const fetchNotes = async () => {
     const data = await fetch(
-      "https://backend-api-jgfs.onrender.com/api/notes/fetchnotes",
+      `${url}/api/notes/fetchnotes`,
       {
         method: "GET",
         headers: {
@@ -55,7 +55,7 @@ const addNote = async (title, description) => {
   if(title){newNote.title = title}
   if(description){newNote.description = description}
   console.log(newNote);
-  const data = await fetch(      "https://backend-api-jgfs.onrender.com/api/notes/addNote",
+  const data = await fetch(      `${url}/api/notes/addNote`,
       {
         method: "POST",
         headers: {
@@ -82,7 +82,7 @@ const addNote = async (title, description) => {
   if(title){newNote.title = title}
   if(description){newNote.description = description}
     const data = await fetch(
-      `https://backend-api-jgfs.onrender.com/api/notes/updatenote/${id}`,
+      `${url}/api/notes/updatenote/${id}`,
       {
         method: "PUT",
         headers: {
@@ -104,7 +104,7 @@ showAlert("error","Something went wrong. Try again!");
   
   const deleteNote = async (id) => {
     const data = await fetch(
-      `https://backend-api-jgfs.onrender.com/api/notes/deletenote/${id}`,
+      `${url}/api/notes/deletenote/${id}`,
       {
         method: "DELETE",
         headers: {
@@ -129,7 +129,7 @@ showAlert("error","Something went wrong. Try again!");
         password: password
       }
       const data = await fetch(
-      `https://backend-api-jgfs.onrender.com/api/auth/register`,
+      `${url}/api/auth/register`,
       {
         method: "POST",
         headers: {
@@ -155,7 +155,7 @@ showAlert("error","Something went wrong. Try again!");
         password: password
       }
       const data = await fetch(
-      `https://backend-api-jgfs.onrender.com/api/auth/login`,
+      `${url}/api/auth/login`,
       {
         method: "POST",
         headers: {
