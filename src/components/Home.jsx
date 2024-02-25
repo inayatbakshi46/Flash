@@ -8,10 +8,14 @@ import Context from "../context/context";
 const Home = () => {
     const {notes, fetchNotes, user, checkLogin} = useContext(Context)
   
-    useEffect(()=>{
-        checkLogin()
-     fetchNotes()
-    }, [])
+    useEffect(() => {
+  const fetchData = async () => {
+    checkLogin();
+    await fetchNotes();
+  };
+
+  fetchData();
+}, []);
     
     return (
         (user ? <div className="min-h-[70vh]">

@@ -132,7 +132,7 @@ const State = (props) => {
       checkLogin();
       showAlert("success", "Signed up Successfully");
     } else {
-      showAlert("error", "Something went wrong. Try again!");
+      showAlert("error", "Email Already Exists!! Signup with another email or login");
     }
   };
   const logUser = async (email, password) => {
@@ -150,10 +150,11 @@ const State = (props) => {
     const res = await data.json();
     if (res.authToken) {
       localStorage.setItem("Token", res.authToken);
+      console.log(localStorage.getItem("Token"));
       checkLogin();
       showAlert("success", "Logged in Successfully");
     } else {
-      showAlert("error", "Something went wrong. Try again!");
+      showAlert("error", "Invalid email or password. Try again!");
     }
   };
 
